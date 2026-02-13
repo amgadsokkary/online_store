@@ -5,6 +5,7 @@ import 'package:online_store/core/cache/cache_user_repo.dart';
 import 'package:online_store/feature/auth/cubit/appauth/app_auth_cubit.dart';
 import 'package:online_store/feature/auth/presentation/screens/login.dart';
 import 'package:online_store/core/widget/custom_button.dart';
+import 'package:online_store/feature/home/presentation/screens/add_products.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -39,6 +40,16 @@ class ProfilePage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text("${user!.email}", style: AppStyles.bodyMedium),
+                ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text("Add Product"),
+                  trailing: Icon(Icons.arrow_forward_ios_outlined),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => AddProducts()),
+                    );
+                  },
+                ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(16.0),

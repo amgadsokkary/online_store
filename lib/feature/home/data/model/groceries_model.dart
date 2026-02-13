@@ -9,6 +9,10 @@ class GroceriesModel {
   GroceriesModel({this.image, this.name, this.color = AppColors.primary});
 
   factory GroceriesModel.fromJson(Map<String, dynamic> json) {
-    return GroceriesModel(image: json['image'] ?? "", name: json['name'] ?? "");
+    return GroceriesModel(
+      image: json['image'] ?? "",
+      name: json['name'] ?? "",
+      color: AppColors.primary,
+    );
   }
 }

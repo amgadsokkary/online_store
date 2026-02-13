@@ -20,7 +20,7 @@ class CustomProductCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: Image.asset(product!.image, height: 80, width: 80)),
+          Center(child: Image.network(product!.image, height: 80, width: 80)),
           Text(product!.name, style: AppStyles.bodyLarge),
           Text(product!.size, style: AppStyles.bodyMedium),
           Spacer(),

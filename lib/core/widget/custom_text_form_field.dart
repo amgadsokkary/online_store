@@ -6,7 +6,7 @@ class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
     this.hintText,
-    required this.icon,
+    this.icon,
     this.sIcon,
     this.isPassword = false,
     required this.controller,
@@ -19,7 +19,7 @@ class CustomTextFormField extends StatefulWidget {
   });
 
   final String? hintText;
-  final IconData icon;
+  final IconData? icon;
   final IconData? sIcon;
   final bool isPassword;
   final void Function()? sOnPressed;
