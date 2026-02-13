@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:online_store/core/theme/app_styles.dart';
-import 'package:online_store/feature/home/data/model/groceries_model.dart';
 
 class CustomGroceriesCard extends StatelessWidget {
   final String image;
