@@ -3,7 +3,9 @@ import 'package:online_store/core/app_images.dart';
 import 'package:online_store/core/theme/app_colors.dart';
 import 'package:online_store/core/theme/app_styles.dart';
 import 'package:online_store/core/widget/custom_text_form_field.dart';
+import 'package:online_store/feature/home/data/model/groceries_model.dart';
 import 'package:online_store/feature/home/data/model/product_model.dart';
+import 'package:online_store/feature/home/presentation/widgets/custom_groceries_card.dart';
 import 'package:online_store/feature/home/presentation/widgets/custom_product_card.dart';
 
 class HomeBody extends StatelessWidget {
@@ -91,6 +93,38 @@ class HomeBody extends StatelessWidget {
         createdAt: DateTime.now(),
       ),
     ];
+    List groceries = [
+      GroceriesModel(
+        name: "Red Apple",
+        image: AppImages.apple,
+        color: Colors.red,
+      ),
+      GroceriesModel(
+        name: "Chille",
+        image: AppImages.chille,
+        color: Colors.green,
+      ),
+      GroceriesModel(
+        name: "Red Apple",
+        image: AppImages.apple,
+        color: Colors.red,
+      ),
+      GroceriesModel(
+        name: "Chille",
+        image: AppImages.chille,
+        color: Colors.green,
+      ),
+      GroceriesModel(
+        name: "Red Apple",
+        image: AppImages.apple,
+        color: Colors.red,
+      ),
+      GroceriesModel(
+        name: "Chille",
+        image: AppImages.chille,
+        color: Colors.green,
+      ),
+    ];
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -158,6 +192,44 @@ class HomeBody extends StatelessWidget {
                   style: AppStyles.bodyLarge.copyWith(color: AppColors.primary),
                 ),
               ],
+            ),
+            SizedBox(
+              height: 200,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomProductCard(product: products[index]),
+                  );
+                },
+                itemCount: products.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Groceries", style: AppStyles.headlineMedium),
+                Text(
+                  "View all",
+                  style: AppStyles.bodyLarge.copyWith(color: AppColors.primary),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 105,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomGroceriesCard(groceries: groceries[index]),
+                  );
+                },
+                itemCount: groceries.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+              ),
             ),
             SizedBox(
               height: 200,
