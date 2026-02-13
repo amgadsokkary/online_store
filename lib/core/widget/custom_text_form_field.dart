@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:online_store/core/app_colors.dart';
-import 'package:online_store/core/app_styles.dart';
+import 'package:online_store/core/theme/app_colors.dart';
+import 'package:online_store/core/theme/app_styles.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -15,6 +15,7 @@ class CustomTextFormField extends StatefulWidget {
     this.filled,
     this.fillColor,
     this.labelText,
+    this.border,
   });
 
   final String? hintText;
@@ -27,6 +28,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool? filled;
   final Color? fillColor;
   final String? labelText;
+  final InputBorder? border;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -48,7 +50,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       },
       style: AppStyles.bodyLarge,
       decoration: InputDecoration(
-        border: UnderlineInputBorder(),
+        border: widget.border ?? UnderlineInputBorder(),
         filled: widget.filled,
         fillColor: widget.fillColor,
         prefixIcon: Icon(widget.icon),

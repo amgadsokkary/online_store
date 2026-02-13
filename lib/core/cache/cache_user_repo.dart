@@ -1,0 +1,21 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
+class CacheUserRepo {
+  static late SharedPreferences sharedPreferences;
+
+  static Future<void> init() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+  }
+
+  static Future<void> login(bool value) async {
+    await sharedPreferences.setBool("isLoggedIn", value);
+  }
+
+  static Future<void> logout() async {
+    await sharedPreferences.setBool("isLoggedIn", false);
+  }
+
+  static Future<bool> isloggedIn() async {
+    return sharedPreferences.getBool("isLoggedIn") ?? false;
+  }
+}
