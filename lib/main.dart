@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_store/core/cache/cache_user_repo.dart';
 import 'package:online_store/feature/auth/cubit/appauth/app_auth_cubit.dart';
+import 'package:online_store/feature/cart/cubit/cart/cart_cubit.dart';
 import 'package:online_store/feature/home/cubit/product_cubit.dart';
 import 'package:online_store/feature/home/presentation/screens/homepage.dart';
 import 'package:online_store/feature/auth/presentation/screens/on_board_page.dart';
@@ -26,13 +27,13 @@ class OnlineStore extends StatelessWidget {
 
   const OnlineStore({super.key, required this.isLoggedIn});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppAuthCubit()),
         BlocProvider(create: (context) => ProductCubit()..getAllProducts()),
+        BlocProvider(create: (context) => CartCubit()..getCartItems()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

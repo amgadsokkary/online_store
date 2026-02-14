@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_store/core/theme/app_colors.dart';
 import 'package:online_store/core/theme/app_styles.dart';
+import 'package:online_store/feature/cart/cubit/cart/cart_cubit.dart';
 import 'package:online_store/feature/home/data/model/product_model.dart';
 
 class CustomProductCard extends StatelessWidget {
@@ -28,14 +30,19 @@ class CustomProductCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("${product!.price} EGP", style: AppStyles.bodyLarge),
-              Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(8),
+              GestureDetector(
+                onTap: () {
+                  BlocProvider.of<CartCubit>(context).addToCart(product!.id);
+                },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(Icons.add, color: Colors.white, size: 20),
                 ),
-                child: Icon(Icons.add, color: Colors.white, size: 20),
               ),
             ],
           ),

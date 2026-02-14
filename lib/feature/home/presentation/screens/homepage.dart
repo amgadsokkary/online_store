@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_store/core/theme/app_colors.dart';
 import 'package:online_store/feature/auth/presentation/screens/profile_page.dart';
+import 'package:online_store/feature/cart/presentation/screens/cart_page.dart';
 import 'package:online_store/feature/home/presentation/widgets/home_body.dart';
 
 class Homepage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomepageState extends State<Homepage> {
   List<Widget> pages = [
     HomeBody(),
     Center(child: Text("Explore")),
-    Center(child: Text("Cart")),
+    CartPage(),
     Center(child: Text("Favourite")),
     ProfilePage(),
   ];
