@@ -27,7 +27,7 @@ class ProductCubit extends Cubit<ProductState> {
     }
   }
 
-  addProducts({
+  Future<void> addProducts({
     required String name,
     required String detail,
     required num price,
